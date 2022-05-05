@@ -1,19 +1,25 @@
 
 /* IMPORT */
 
-import {useEffect, useRef, RefObject} from 'react';
+import {useEffect, useRef} from 'react';
+import type {RefObject} from 'react';
 
-/* USE MOUNTED */
+/* MAIN */
 
 const useMounted = (): RefObject<boolean> => {
 
   const mounted = useRef ( false );
 
   useEffect ( () => {
+
     mounted.current = true;
+
     return () => {
+
       mounted.current = false;
+
     };
+
   }, [] );
 
   return mounted;
